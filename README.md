@@ -31,4 +31,4 @@ Rules of the Frog Protocol:
 ## Building
 This project uses CMake, build with `cmake .`
 ## Dependencies
-This project relies on SFML, which will be automatically downloaded by CMake for static linking of the used modules.
+This project relies on SFML, which will be automatically downloaded by CMake for static linking of the used modules. The SFML Network and System Modules are used.

@@ -6,7 +6,7 @@
 
 #include "frogicol.hpp"
 
-void frogiConnection(sf::TcpSocket* socket) {
+void frogConnection(sf::TcpSocket* socket) {
 	bool connected = true;
 	std::stringstream addrss;
 	addrss << socket->getRemoteAddress();
@@ -18,14 +18,14 @@ void frogiConnection(sf::TcpSocket* socket) {
 			connected = false;
 			break;
 		}
-		if (message.type == PING) {
-			if (!send(*socket,info("Frogicol Demo Server"))) {
+		if (message.type == PING) {	// Page Title
+			if (!send(*socket,info("Frog Demo Server"))) {
 				connected = false;
 				break;
 			}
 		}
 		else if (message.type == REQUEST) {
-			if (message.data == "search") {
+			if (message.data == "search") {	// Search Page
 				if (!send(*socket,question("Search Query"))) {
 					connected = false;
 					break;
@@ -41,8 +41,17 @@ void frogiConnection(sf::TcpSocket* socket) {
 				}
 				send(*socket,response("Searched for: " + message.data));
 			}
-			else {
-				send(*socket,response("Document Not Found: " + message.data));
+			else if (message.data == "") {	// Homepage
+				if (!send(*socket,response("Frog Demo Server:\nTo Search the site, Go To 'search'"))) {
+					connected = false;
+					break;
+				}
+			}
+			else {	// Page not found page
+				if (!send(*socket,response("Document Not Found: \nGo To '' for home page" + message.data))) {
+					connected = false;
+					break;
+				}
 			}
 		}
 	}
@@ -56,7 +65,7 @@ int main() {
 	while (true) {
 		sf::TcpSocket* socket = new sf::TcpSocket;
 		listener.accept(*socket);
-		sf::Thread* thread = new sf::Thread(frogiConnection, socket);
+		sf::Thread* thread = new sf::Thread(frogConnection, socket);
 		thread->launch();
 	}
 	return 0;
