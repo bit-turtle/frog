@@ -48,7 +48,7 @@ void frogConnection(sf::TcpSocket* socket) {
 				}
 			}
 			else {	// Page not found page
-				if (!send(*socket,response("Document Not Found: \nGo To '' for home page" + message.data))) {
+				if (!send(*socket,response("Document Not Found: " + message.data + "\nGo To Page '' for homepage"))) {
 					connected = false;
 					break;
 				}

@@ -35,6 +35,7 @@ int main() {
 			info.type != INFO
 		) frogserver = false;
 	}
+	else frogserver = false;
 	if (frogserver) {
 		bool connected = true;
 		std::string location = "";
