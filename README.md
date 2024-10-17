@@ -50,6 +50,8 @@ Rules of the Frog Protocol:
 4. Server: "*q*Search Query": Server asks Client for a "Search Query"
 5. Client: "*a*Frog Protocol": Client Answers to the "Search Query" Question with "Frog Protocol"
 6. Server: "*s*Frog Protocol is an internet protocol like http": The Server Responds with the Page the Client Requested
+## PROTOCOL.md
+There is more information on the frog protocol in the `PROTOCOL.md` document
 ## What is in this repository
 1. A Frog Protocol Client (`frogclient`)
     - Works out of the box
