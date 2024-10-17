@@ -36,8 +36,8 @@ FrogiMessage response(std::string);
 FrogiMessage question(std::string);
 FrogiMessage answer(std::string);
 FrogiMessage ping();
-FrogiMessage info();
-// 
+FrogiMessage info(std::string);
+// For No Reason
 
 FrogiMessage
 strToMessage(std::string string) {
