@@ -108,6 +108,7 @@ void collectGarbage() {
 			delete garbage.at(0)->socket;
 			delete garbage.at(0);
 			garbage.erase(garbage.begin());
+			std::cout << "[GarbageCollector] Deleted Garbage" << std::endl;
 		}
 		garbagelock.unlock();
 	}
