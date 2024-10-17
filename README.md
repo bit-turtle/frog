@@ -21,6 +21,10 @@ Rules of the Frog Protocol:
     - 'm': Message to display before the response from the server is sent
         - Arguments: The message to display
         - Is sent between a request message and the fullfillment of the request
+        - A message is fullfilled with a Next Message
+    - 'n': Next Message
+        - Wait for the client to finish reading the message
+        - Arguments: Message to display
     - 'q': Question for Client
         - Arguments: The question to display
         - Next message must be an answer
